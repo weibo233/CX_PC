@@ -77,39 +77,43 @@
           </el-row>
         </el-col>
         <el-col :span="6" class="t510">
-          <tab :BG="true" title="企业视频"></tab>
-          <!-- <img src="@/assets/images/home/cx.jpg" alt=""> -->
-          <video
-            preload="preload"
-            controls="controls"
-            class="tinyScreenVideo"
-            style="height: 178px; width: 270px;"
-            poster="@/assets/images/home/cx.jpg"
-          >
-            <source
-              src="https://mazwai.com/videvo_files/video/free/2016-01/small_watermarked/test_flight_preview.webm"
-              type="video/mp4"
-            />
-            您的浏览器不支持 video 标签。
-          </video>
-          <tab :BG="true" title="联系我们" :top="40"></tab>
-          <div style="box-sizing:border-box;padding:15px 22px;">
-            <p class="address">
-              <span>公司地址：</span>
-              <span>深圳市福田区莲花街道景田南住宅小区综合楼南侧二楼201</span>
-            </p>
-            <p class="emaill">
-              <span>公司邮箱：</span>
-              <span>szcxzj@21cn.com</span>
-            </p>
-            <p class="contact">
-              <span>联系方式：</span>
-              <span>0755-83948356</span>
-            </p>
-            <p class="fax">
-              <span>传真：</span>
-              <span>0755-83498355</span>
-            </p>
+          <div style="border:2px solid rgb(162, 151, 151)">
+            <tab :BG="true" title="企业视频"></tab>
+            <!-- <img src="@/assets/images/home/cx.jpg" alt=""> -->
+            <video
+              preload="preload"
+              controls="controls"
+              class="tinyScreenVideo"
+              style="height: 178px; width: 267px;"
+              poster="@/assets/images/home/cx.jpg"
+            >
+              <source
+                src="https://mazwai.com/videvo_files/video/free/2016-01/small_watermarked/test_flight_preview.webm"
+                type="video/mp4"
+              />
+              您的浏览器不支持 video 标签。
+            </video>
+          </div>
+          <div style="border:2px solid rgb(162, 151, 151); margin-top:40px;">
+              <tab :BG="true" title="联系我们" ></tab>
+              <div style="box-sizing:border-box;padding:15px 10px;">
+                <p class="address">
+                  <span>公司地址：</span>
+                  <span>深圳市福田区莲花街道景田南住宅小区综合楼南侧二楼201</span>
+                </p>
+                <p class="emaill">
+                  <span>公司邮箱：</span>
+                  <span>szcxzj@21cn.com</span>
+                </p>
+                <p class="contact">
+                  <span>联系方式：</span>
+                  <span>0755-83948356</span>
+                </p>
+                <p class="fax">
+                  <span>传真：</span>
+                  <span>0755-83498355</span>
+                </p>
+              </div>
           </div>
         </el-col>
       </el-row>
@@ -195,10 +199,6 @@ export default {
         },
         {
           data: "造价咨询服务收费标准",
-          time: "2020/06/08"
-        },
-        {
-          data: "杨银冰你是不是傻",
           time: "2020/06/08"
         }
       ],
@@ -356,7 +356,7 @@ export default {
   * {
     font-size: 14px;
     line-height: 24px;
-    color: #847e7e;
+    color: #494747;
   }
 }
 .emaill {
@@ -365,6 +365,10 @@ export default {
 
 .t510 {
   height: 510px;
+}
+
+.tinyScreenVideo{
+  object-fit:fill;
 }
 
 </style>

@@ -7,7 +7,7 @@
     </el-col>
     <el-col :span="12" class="Bidding-data" :offset="2">
       <p>
-        <span class="fl">{{ information.title }}</span>
+        <span class="fl" style="color:rgb(128,128,128);">{{ information.title }}</span>
         <span class="fr" style="color:#cac3c3;">{{ information.time }}</span>
       </p>
       <p
