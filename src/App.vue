@@ -32,7 +32,7 @@
           <el-menu-item index="/contact">联系我们</el-menu-item>
           <span
             class="icon"
-            @click="$router.push('/search')"
+            @click="drawer=true"
             :style="{ backgroundImage: 'url(' + search + ')' }"
           ></span>
         </el-menu>
@@ -167,6 +167,10 @@ ul li {
           margin-top: 60px;
           &:last-child {
             margin-right: 0;
+          }
+          &:hover{
+            color: brown;
+            cursor: pointer;
           }
         }
       }

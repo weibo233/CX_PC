@@ -60,7 +60,9 @@
             :key="idx"
           >
             <el-col :span="16" class="more_than">{{ item.title }}</el-col>
-            <el-col :span="6" :offset="2" class="fr" style="color:#cac3c3;">{{ item.date }}</el-col>
+            <el-col :span="6" :offset="2" class="fr" style="color:#cac3c3;">{{
+              item.date
+            }}</el-col>
           </el-row>
         </el-col>
         <el-col :span="10" class="t510">
@@ -73,7 +75,9 @@
             :key="idx"
           >
             <el-col :span="16" class="more_than">{{ item.title }}</el-col>
-            <el-col :span="6" :offset="2" class="fr" style="color:#cac3c3;">{{ item.date }}</el-col>
+            <el-col :span="6" :offset="2" class="fr" style="color:#cac3c3;">{{
+              item.date
+            }}</el-col>
           </el-row>
         </el-col>
         <el-col :span="6" class="t510">
@@ -84,7 +88,7 @@
               preload="preload"
               controls="controls"
               class="tinyScreenVideo"
-              style="height: 178px; width: 267px;"
+              style="height: 178px; width: 267px;margin-bottom: -4px;"
               poster="@/assets/images/home/cx.jpg"
             >
               <source
@@ -95,29 +99,29 @@
             </video>
           </div>
           <div style="border:2px solid rgb(162, 151, 151); margin-top:40px;">
-              <tab :BG="true" title="联系我们" ></tab>
-              <div style="box-sizing:border-box;padding:15px 10px;">
-                <p class="address">
-                  <span>公司地址：</span>
-                  <span>深圳市福田区莲花街道景田南住宅小区综合楼南侧二楼201</span>
-                </p>
-                <p class="emaill">
-                  <span>公司邮箱：</span>
-                  <span>szcxzj@21cn.com</span>
-                </p>
-                <p class="contact">
-                  <span>联系方式：</span>
-                  <span>0755-83948356</span>
-                </p>
-                <p class="fax">
-                  <span>传真：</span>
-                  <span>0755-83498355</span>
-                </p>
-              </div>
+            <tab :BG="true" title="联系我们"></tab>
+            <div style="box-sizing:border-box;padding:15px 10px;">
+              <p class="address">
+                <span>公司地址：</span>
+                <span>深圳市福田区莲花街道景田南住宅小区综合楼南侧二楼201</span>
+              </p>
+              <p class="emaill">
+                <span>公司邮箱：</span>
+                <span>szcxzj@21cn.com</span>
+              </p>
+              <p class="contact">
+                <span>联系方式：</span>
+                <span>0755-83948356</span>
+              </p>
+              <p class="fax">
+                <span>传真：</span>
+                <span>0755-83498355</span>
+              </p>
+            </div>
           </div>
         </el-col>
       </el-row>
-     <tender/>
+      <tender />
     </div>
   </div>
 </template>
@@ -134,9 +138,9 @@ export default {
   data() {
     return {
       bannerimg: [
-        {
-          url: require("@/assets/images/main/big_banner5.jpg")
-        },
+        // {
+        //   url: require("@/assets/images/main/big_banner5.jpg")
+        // },
         {
           url: require("@/assets/images/main/big_banner3.jpg")
         },
@@ -145,10 +149,10 @@ export default {
         },
         {
           url: require("@/assets/images/main/big_banner4.jpg")
-        },
-        {
-          url: require("@/assets/images/main/big_banner1.jpg")
         }
+        // {
+        //   url: require("@/assets/images/main/big_banner1.jpg")
+        // }
       ],
       bidInf: [
         {
@@ -279,11 +283,10 @@ export default {
 <style lang="scss" scoped>
 .fontHover {
   cursor: pointer;
-  *{
-  &:hover {
-    color: salmon !important;
-  }
-
+  * {
+    &:hover {
+      color: salmon !important;
+    }
   }
 }
 .banner {
@@ -325,7 +328,7 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      color: rgb(128,128,128);
+      color: rgb(128, 128, 128);
     }
     .time {
       color: #cac3c3;
@@ -342,7 +345,7 @@ export default {
   white-space: nowrap;
 }
 
-.cx_Tender  {
+.cx_Tender {
   margin-top: 80px;
   height: 400px;
   box-sizing: border-box;
@@ -367,8 +370,7 @@ export default {
   height: 510px;
 }
 
-.tinyScreenVideo{
-  object-fit:fill;
+.tinyScreenVideo {
+  object-fit: fill;
 }
-
 </style>

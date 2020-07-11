@@ -5,7 +5,12 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// import BaiduMap from 'vue-baidu-m;ap'
+
 Vue.use(ElementUI)
+// Vue.use(BaiduMap, {
+//   ak: 'r8kPn7pGj2Rp7ruAECrDfWBMKuFxYKSB'
+// })
 
 /**
  * 添加swiper

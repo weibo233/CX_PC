@@ -10,41 +10,43 @@ export default new Router({
     {
       path:'/home',
       name:'home',
+      title:"首页",
       component:resolve => require(['@/view/home'],resolve),
     },
     {
       path:"/tender",
-      name:"tender",
+      name:"招标信息",
       component:resolve => require(['@/view/tender'],resolve)
     },
     {
       path:"/enterprise",
-      name:"enterprise",
+      name:"企业荣誉",
       component:resolve => require(['@/view/enterprise'],resolve)
     },
     {
       path:"/policy",
-      name:"policy",
+      name:"政策文件",
       component:resolve => require(['@/view/policy'],resolve)
     },
     {
       path:"/charging",
-      name:"charging",
+      name:"收费标准",
       component:resolve => require(['@/view/charging'],resolve)
     },
     {
       path:"/talent",
-      name:"talent",
+      name:"人才招聘",
       component:resolve => require(['@/view/talent'],resolve)
     },
     {
       path:"/contact",
-      name:"contact",
+      name:"联系我们",
       component:resolve => require(['@/view/contact'],resolve)
     },
     {
       path:"/about",
-      name:"about",
+      name:"关于我们",
+      titl:"关于我们",
       component:resolve => require(['@/view/about'],resolve)
     },
     {

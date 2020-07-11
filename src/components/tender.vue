@@ -1,6 +1,6 @@
 <template>
   <el-row class="cx_Tender" style="padding:0 24px;">
-    <tab title="招标信息"  />
+    <tab title="工程案例"  />
     <div style="margin-top:48px;">
       <carrousel :carrouselData="carrouselData"></carrousel>
     </div>

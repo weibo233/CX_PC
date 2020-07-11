@@ -16,6 +16,7 @@
     "swiper": "^3.4.2",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^2.6.7",
+    "vue-baidu-map": "^0.21.22",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
