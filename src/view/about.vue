@@ -87,10 +87,9 @@ export default {
       vertical-align: middle;
     }
     .introduction {
-      padding: 0 46px;
+      padding: 38px 46px;
       color: rgb(64, 73, 88);
       border-left: 2px solid rgba(128, 128, 128, 0.933);
-      margin-top: 20px;
       p {
         text-indent: 2em;
         font-size: 18px;

@@ -5,7 +5,7 @@
       <tabs :tabs="tabs" :Navigation="Navigation"></tabs>
       <zhu :msg="msg"></zhu>
       <el-row style="margin-bottom:32px;" v-for="item in 5" :key="item">
-        <el-col :offset="2" :span="22">
+        <el-col  :span="22" style="margin-left:30px;">
           <div class="time fl">
             <p class="y">2020</p>
             <p class="md">06/30</p>

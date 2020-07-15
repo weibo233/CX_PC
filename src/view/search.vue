@@ -1,13 +1,21 @@
 <template>
-  <div>
-    关键字搜索
+  <div id="search">
+  
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      url:require("@/assets/images/main/keywordjpg.jpg")
+    };
   }
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#search{
+  margin: 0 auto;
+  min-height: 600px;
+  background:url("~@/assets/images/main/keywordjpg.jpg") ;
+}
+</style>

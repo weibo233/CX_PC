@@ -268,6 +268,7 @@ export default {
     text-align: center;
     font-size: 16px;
     color: blanchedalmond;
+    cursor: pointer;
     img {
       width: 234px;
       height: 166px;
@@ -288,7 +289,7 @@ export default {
       margin-bottom: 24px;
       img {
         width: 100%;
-        height: 190px;
+        height: 186px;
       }
       .title {
         margin-bottom: 18px;
@@ -311,7 +312,7 @@ export default {
         position: absolute;
         bottom: 4px;
         right: 6px;
-        color: #404a77;
+        color: rgb(29,80,158);
       }
     }
   }

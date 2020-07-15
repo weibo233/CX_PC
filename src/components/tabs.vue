@@ -7,7 +7,7 @@
         <span class="hover">{{ title }}</span>
       </p>
     </el-col>
-    <el-col :span="6" :offset="12" class="tab-title">
+    <el-col :span="18"  class="tab-title">
       <span
         v-for="(item, idx) in tabs"
         :key="idx"
@@ -51,7 +51,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 *{
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .top {
   margin-top: 40px;

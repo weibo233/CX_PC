@@ -8,7 +8,7 @@
         <left-tab></left-tab>
         <el-col
           :span="16"
-          style="padding:24px 56px;border-left: 2px solid rgba(64, 73, 88, 0.933);"
+          style="padding:38px 56px;border-left: 2px solid rgba(64, 73, 88, 0.933);"
         >
           <div class="Fbox">
             <p class="title">深圳市成效项目管理有限公司</p>
@@ -118,6 +118,7 @@ export default {
   .box {
     * {
       letter-spacing: 1px;
+      color: rgb(64,73,88);
     }
   }
   .Fbox {

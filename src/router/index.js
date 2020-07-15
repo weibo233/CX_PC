@@ -54,6 +54,21 @@ export default new Router({
       name:"search",
       component:resolve => require(['@/view/search'],resolve)
     },
+    // 企业新闻
+    {
+      path:"/CorporateNews",
+      name:"CorporateNews",
+      component:resolve => require(['@/view/CorporateNews'],resolve)
+    },
+    // 行业新闻
+    {
+      path:"/IndustryNews",
+      name:"IndustryNews",
+      component:resolve => require(['@/view/industrynews'],resolve)
+    },
+   
+
+
   ]
 })
 

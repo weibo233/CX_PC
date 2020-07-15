@@ -2,7 +2,7 @@
   <div :style="`padding: 0 ${padding}px;`">
     <p v-if="!BG" class="tabP">
       <span class="fl title">{{ title }}</span>
-      <span class="fr more">更多>>></span>
+      <span class="fr more" @click="goRouter(router)" v-if="ismore">更多>>></span>
     </p>
     <p v-if="BG" class="tabB" :style="`margin-top:${top}px;`">
       <span class="fl title">{{ title }}</span>
@@ -26,16 +26,30 @@ export default {
     padding:{
       type:Number,
       default:0
+    },
+    router:{
+      type:String,
+      default:""
+    },
+    ismore:{
+      type:Boolean,
+      default:true
     }
   },
   data() {
     return {};
+  },
+  methods:{
+    goRouter(e) {
+      this.$router.push(e)
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
 .tabP,
 .tabB {
+  letter-spacing: 2px;
   .more {
     -moz-user-select: none; /*火狐*/
     -webkit-user-select: none; /*webkit浏览器*/
@@ -57,6 +71,7 @@ export default {
     font-family: "Microsoft YaHei";
     color: rgb(128,128,128);
     border-bottom: 4px solid rgb(31, 78, 168);
+    letter-spacing: 2px;
   }
   .more {
     font-size: 16px;

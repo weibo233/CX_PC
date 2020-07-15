@@ -7,7 +7,7 @@
     </el-col>
     <el-col :span="12" class="Bidding-data" :offset="2">
       <p>
-        <span class="fl" style="color:rgb(128,128,128);">{{ information.title }}</span>
+        <span class="fl fontHover" style="color:rgb(128,128,128);" @click="goRoute(router)">{{ information.title }}</span>
         <span class="fr" style="color:#cac3c3;">{{ information.time }}</span>
       </p>
       <p
@@ -31,12 +31,21 @@ export default {
       default() {
         return {};
       }
+    },
+    router:{
+      type:String,
+      default:"/CorporateNews"
     }
   },
   data() {
     return {};
   },
-  created() {}
+  created() {},
+  methods:{
+    goRoute(roter) {
+      this.$router.push(roter)
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -57,6 +66,15 @@ export default {
 }
 .Bidding-data {
   font-size: 12px;
+}
+
+.fontHover {
+  cursor: pointer;
+  
+    &:hover {
+      color: salmon !important;
+    }
+  
 }
 //  style="margin-top:20px;margin-bottom:6px;padding-bottom:20px;border-bottom:2px dashed #eeee;"
 </style>

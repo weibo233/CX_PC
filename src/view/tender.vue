@@ -4,9 +4,10 @@
     <div id="render">
       <tabs :tabs="tabs"></tabs>
       <zhu :msg="msg"></zhu>
+      <!-- 招标公告 -->
       <div v-show="msg === '招标公告' ? true : false">
         <el-row style="margin-bottom:32px;" v-for="item in 5" :key="item">
-          <el-col  :span="23" style="margin-left:26px;">
+          <el-col :span="23" style="margin-left:26px;">
             <div class="time fl">
               <p class="y">2020</p>
               <p class="md">06/30</p>
@@ -15,6 +16,27 @@
               <p class="title">深圳市建设项目管理协会创会会员单位。</p>
               <p class="data">
                 是广东省建筑业协会会员单位、深圳市造价工程师协会理事单位、深圳市建设项目管理协会创会会员单位。
+              </p>
+            </div>
+          </el-col>
+        </el-row>
+        <p style="text-align:center;">
+          <el-pagination layout="prev, pager, next" :total="50">
+          </el-pagination>
+        </p>
+      </div>
+      <!-- 资料下载 -->
+      <div v-show="msg === '资料下载' ? true : false">
+        <el-row style="margin-bottom:32px;" v-for="item in 5" :key="item">
+          <el-col :span="23" style="margin-left:26px;">
+            <div class="time fl">
+              <p class="y">2020</p>
+              <p class="md">06/30</p>
+            </div>
+            <div class="notice fr">
+              <p class="title">报名及招标文件发售登记表</p>
+              <p class="data">
+                报名及招标文件发售登记表.doc
               </p>
             </div>
           </el-col>

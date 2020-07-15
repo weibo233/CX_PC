@@ -30,11 +30,16 @@
           <el-menu-item index="/charging">收费标准</el-menu-item>
           <el-menu-item index="/talent">人才招聘</el-menu-item>
           <el-menu-item index="/contact">联系我们</el-menu-item>
-          <span
-            class="icon"
-            @click="drawer=true"
-            :style="{ backgroundImage: 'url(' + search + ')' }"
-          ></span>
+          <el-menu-item index="/search">
+            <template>
+            <span
+              class="icon"
+              :style="{ backgroundImage: 'url(' + search + ')' }"
+            ></span>
+
+            </template>
+          </el-menu-item>
+
         </el-menu>
       </nav>
     </el-row>
@@ -92,6 +97,11 @@ export default {
       keyword:require("@/assets/images/main/keywordjpg.jpg")
     };
   },
+  methods:{
+    gotosearch() {
+      this.$router.push('/search')
+    }
+  },
   created() {
     this.$router.push('/home')
   }
@@ -142,8 +152,6 @@ ul li {
     height: 60px;
     background: rgb(29, 80, 159);
     .icon {
-      margin-top: 14px;
-      margin-left: 20px;
       display: inline-block;
       width: 33px;
       height: 33px;
@@ -224,7 +232,7 @@ nav {
       max-width: 160px;
     }
     .el-menu-item {
-      min-width: 140px;
+      min-width: 130px;
       padding: 0 35px;
     }
     .el-submenu__title {
@@ -256,6 +264,10 @@ nav {
       border-radius: 5px;
     }
   }
+}
+
+.el-menu.el-menu--horizontal {
+    border-bottom: none;
 }
 
 </style>

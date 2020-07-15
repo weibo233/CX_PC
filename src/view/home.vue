@@ -9,8 +9,9 @@
     </el-row>
     <div class="content center" style="margin-top:80px;">
       <el-row :gutter="40">
+        <!-- 企业荣誉 -->
         <el-col :span="6">
-          <tab title="企业荣誉"></tab>
+          <tab title="企业荣誉" router="/enterprise"></tab>
           <el-carousel
             height="316px"
             arrow="never"
@@ -23,10 +24,11 @@
             </el-carousel-item>
           </el-carousel>
         </el-col>
+        <!-- 招标信息 -->
         <el-col :span="12">
-          <tab title="招标信息"></tab>
+          <tab title="招标信息" router="/tender"></tab>
           <el-row
-            class="bidding-data fontHover"
+            class="bidding"
             v-for="(item, idx) in bidInf"
             :key="idx"
             :title="item.data"
@@ -36,10 +38,11 @@
             <el-col :span="4" class="fr time">{{ item.time }}</el-col>
           </el-row>
         </el-col>
+        <!-- 收费标准 -->
         <el-col :span="6">
-          <tab title="收费标准"></tab>
+          <tab title="收费标准" router="/charging"></tab>
           <el-row
-            class="bidding-data fontHover"
+            class="charge"
             v-for="(item, idx) in charge"
             :key="idx"
             :title="item.data"
@@ -49,13 +52,14 @@
           </el-row>
         </el-col>
       </el-row>
+      <!-- next -->
       <el-row :gutter="40" style="margin-top:80px;">
+        <!-- 企业新闻 -->
         <el-col :span="8" class="t510">
-          <tab title="企业新闻"></tab>
-          <img-tab :information="Bidding_data" />
+          <tab title="企业新闻" :ismore="false"></tab>
+          <img-tab :information="Bidding_data" router="/CorporateNews" />
           <el-row
-            class="fontHover"
-            style="box-sizing:border-box;padding:14px 0;text-align:center;font-size:10px;height:48px;border-bottom:2px dashed #eee;color: rgb(128,128,128);"
+            class="corporatenews"
             v-for="(item, idx) in Bidding"
             :key="idx"
           >
@@ -65,12 +69,12 @@
             }}</el-col>
           </el-row>
         </el-col>
+        <!-- 行业新闻 -->
         <el-col :span="10" class="t510">
-          <tab title="行业新闻"></tab>
-          <img-tab :information="Bidding_data" />
+          <tab title="行业新闻" :ismore="false"></tab>
+          <img-tab :information="Bidding_data" router="/IndustryNews" />
           <el-row
-            class="fontHover"
-            style="box-sizing:border-box;padding:14px 0;text-align:center;font-size:10px;height:48px;border-bottom:2px dashed #eee;color: rgb(128,128,128);"
+            class="industrynews"
             v-for="(item, idx) in Bidding"
             :key="idx"
           >
@@ -80,6 +84,7 @@
             }}</el-col>
           </el-row>
         </el-col>
+        <!-- 企业视频 -->
         <el-col :span="6" class="t510">
           <div style="border:2px solid rgb(162, 151, 151)">
             <tab :BG="true" title="企业视频"></tab>
@@ -233,6 +238,7 @@ export default {
         }
       ],
       Bidding_data: {
+        id: 1,
         url: require("@/assets/images/home/project/project1.jpg"),
         title: "广东省建筑业协会",
         time: "2020/06/27",
@@ -283,10 +289,8 @@ export default {
 <style lang="scss" scoped>
 .fontHover {
   cursor: pointer;
-  * {
-    &:hover {
-      color: salmon !important;
-    }
+  &:hover {
+    color: salmon !important;
   }
 }
 .banner {
@@ -318,12 +322,18 @@ export default {
     width: 270px;
     height: 200px;
   }
-  .bidding-data {
+  //招标信息、收费标准
+  .charge,
+  .bidding {
     font-family: "微软雅黑";
     font-size: 12px;
     padding: 10px 0;
     border-bottom: 1px dashed #eee;
-
+    letter-spacing: 2px;
+    cursor: pointer;
+    :hover {
+      color: salmon !important;
+    }
     .data {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -332,6 +342,20 @@ export default {
     }
     .time {
       color: #cac3c3;
+    }
+  }
+  // 企业新闻、行业新闻
+  .corporatenews,.industrynews {
+    box-sizing: border-box;
+    padding: 14px 0;
+    text-align: center;
+    font-size: 10px;
+    height: 48px;
+    border-bottom: 2px dashed #eee;
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+    &:hover{
+       color: salmon !important;
     }
   }
 }
