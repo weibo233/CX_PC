@@ -30,7 +30,7 @@
           <el-menu-item index="/charging">收费标准</el-menu-item>
           <el-menu-item index="/talent">人才招聘</el-menu-item>
           <el-menu-item index="/contact">联系我们</el-menu-item>
-          <el-menu-item index="/search">
+          <el-menu-item index="/home">
             <template>
             <span
               class="icon"
@@ -72,9 +72,9 @@
       <el-row class="copyright">
         <div class="content">
           <ul>
-            <li>联系方式：0755-83948356</li>
-            <li>szcxzj@21cn.com</li>
-            <li>传真:0755-83948355</li>
+            <li style="letter-spacing:1px;">联系方式：0755-83948356</li>
+            <li style="letter-spacing:1px;">szcxzj@21cn.com</li>
+            <li style="letter-spacing:1px;">传真：0755-83948355</li>
           </ul>
         </div>
       </el-row>
@@ -122,6 +122,7 @@ export default {
   padding: 0;
   font-family: "Microsoft YaHei";
 }
+.clear{ clear:both} 
 ul li {
   list-style: none;
   text-align: center;
@@ -171,7 +172,7 @@ ul li {
       .linkT {
         li {
           font-size: 20px;
-          margin-right: 130px;
+          margin-right: 139px;
           margin-top: 60px;
           &:last-child {
             margin-right: 0;
@@ -187,7 +188,7 @@ ul li {
         li {
           font-size: 16px;
           margin-top: 35px;
-          margin-right: 147px;
+          margin-right: 156px;
           &:last-child {
             margin-right: 0;
           }
@@ -208,6 +209,15 @@ ul li {
           color: #fff;
           margin-right: 216px;
           margin-top: 45px;
+           &:nth-child(2) {
+            float: center;
+            margin-right: 0;
+            margin-left: 96px;
+          }
+          &:nth-child(3) {
+            margin-right: 0;
+            float: right;
+          }
         }
       }
     }

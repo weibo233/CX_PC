@@ -8,7 +8,7 @@
         <left-tab></left-tab>
         <el-col
           :span="16"
-          style="padding:38px 56px;border-left: 2px solid rgba(64, 73, 88, 0.933);"
+          style="padding:38px 56px;border-left: 2px solid rgba(194,194,194,0.933);"
         >
           <div class="Fbox">
             <p class="title">深圳市成效项目管理有限公司</p>
@@ -102,11 +102,23 @@ export default {
       ]
     };
   },
+  methods:{
+    getData() {
+      this.$http({
+        method: "post",
+        url: "/framework/all/subject/info",
+        data: {}
+      }).then(res => {
+          console.log(res)
+      });
+    }
+  },
   created() {
     Bus.$on("setMsg", content => {
       this.msg = content;
     });
     this.Navigation = this.$router.history.current.name;
+    this.getData()
   }
 };
 </script>

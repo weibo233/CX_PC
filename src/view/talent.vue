@@ -4,14 +4,20 @@
     <div id="talent">
       <tabs :tabs="tabs"></tabs>
       <zhu :msg="msg"></zhu>
-      <el-row style="margin-bottom:32px;" v-for="item in 5" :key="item">
+      <el-row
+        style="margin-bottom:32px;"
+        v-for="item in talent"
+        :key="item.articleId"
+      >
         <el-col :span="22" style="margin-left:30px;">
           <div class="time fl">
-            <p class="y">2020</p>
-            <p class="md">06/30</p>
+            <p class="y">{{ item.releaseTime.slice(0, 4) }}</p>
+            <p class="md">{{ item.releaseTime.slice(5, 10) }}</p>
           </div>
           <div class="notice fr">
-            <p class="title">【招贤纳士】深圳成效项目管理有限公司诚聘监理及造价英才！</p>
+            <p class="title">
+              【招贤纳士】深圳成效项目管理有限公司诚聘监理及造价英才！
+            </p>
           </div>
         </el-col>
       </el-row>
@@ -35,13 +41,34 @@ export default {
   data() {
     return {
       tabs: ["人才招聘"],
-      msg: "人才招聘"
+      msg: "人才招聘",
+      talent: []
     };
+  },
+  methods: {
+    getData() {
+      this.$http({
+        method: "post",
+        url: "framework/all/article/page",
+        data: {
+          categoryId: "21", //21 人才招聘
+          onlineFlag: 1
+        }
+      }).then(res => {
+        this.talent = res.data.data.resultList.map(item => {
+          item.releaseTime = item.releaseTime.slice(0, 10);
+          return {
+            ...item
+          };
+        });
+      });
+    }
   },
   created() {
     Bus.$on("setMsg", content => {
       this.msg = content;
     });
+    this.getData()
   }
 };
 </script>

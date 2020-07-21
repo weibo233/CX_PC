@@ -71,7 +71,7 @@ export default {
     font-family: "Microsoft YaHei";
     color: rgb(128,128,128);
     border-bottom: 4px solid rgb(31, 78, 168);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
   }
   .more {
     font-size: 16px;

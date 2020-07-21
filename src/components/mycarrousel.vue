@@ -2,8 +2,8 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(item, idx) in carrouselData" :key="idx">
-        <img :src="item.url" alt="" />
-        <p style="color:rgb(128,128,128);text-align:center;">{{item.title}}</p>
+        <img :src="item.cover" alt="" />
+        <p style="color:rgb(128,128,128);text-align:center;letter-spacing:2px;">{{item.title}}</p>
       </div>
     </div>
     <!-- 如果需要分页器 -->

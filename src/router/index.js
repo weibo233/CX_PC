@@ -66,6 +66,11 @@ export default new Router({
       name:"IndustryNews",
       component:resolve => require(['@/view/industrynews'],resolve)
     },
+    {
+      path:"/detail",
+      name:"detail",
+      component:resolve => require(['@/view/detail'],resolve)
+    }
    
 
 

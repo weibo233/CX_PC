@@ -24,6 +24,7 @@ export default {
   * {
     line-height: 30px;
     font-family: "Microsoft YaHei";
+    letter-spacing: 1px;
   }
 }
 </style>

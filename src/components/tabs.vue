@@ -2,7 +2,7 @@
   <el-row class="top">
     <el-col :span="6" class="breadcrumb">
       <p>
-        <span style="margin-right:8%;color:rgb(29,64,88);">{{Navigation}}</span>
+        <span style="margin-right:11%;color:rgb(73,64,88);">{{Navigation}}</span>
         <i></i>
         <span class="hover">{{ title }}</span>
       </p>
@@ -95,6 +95,7 @@ export default {
     height: 60px;
     text-align: center;
     line-height: 60px;
+    color:rgb(64,73,88);
     cursor: pointer;
   }
   .active {
