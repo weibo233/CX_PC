@@ -9,20 +9,22 @@
         v-for="item in talent"
         :key="item.articleId"
       >
-        <el-col :span="22" style="margin-left:30px;">
+        <el-col :span="22" style="margin-left:30px;" @click.native="toDetail(item.articleId)">
           <div class="time fl">
             <p class="y">{{ item.releaseTime.slice(0, 4) }}</p>
             <p class="md">{{ item.releaseTime.slice(5, 10) }}</p>
           </div>
           <div class="notice fr">
             <p class="title">
-              【招贤纳士】深圳成效项目管理有限公司诚聘监理及造价英才！
+              {{item.title}}
             </p>
           </div>
         </el-col>
       </el-row>
       <p style="text-align:center;">
-        <el-pagination layout="prev, pager, next" :total="50"> </el-pagination>
+        <el-pagination layout="prev, pager, next"   @current-change="handleCurrentChange"
+            :page-size="searchForm.pageSize"
+            :total="searchForm.pageCount"> </el-pagination>
       </p>
     </div>
   </div>
@@ -42,7 +44,13 @@ export default {
     return {
       tabs: ["人才招聘"],
       msg: "人才招聘",
-      talent: []
+      talent: [],
+      searchForm: {
+        pageCount: 1,
+        pageSize: 5,
+        categoryId: 21, //招标公告6
+        targetPage: 1
+      }
     };
   },
   methods: {
@@ -50,10 +58,7 @@ export default {
       this.$http({
         method: "post",
         url: "framework/all/article/page",
-        data: {
-          categoryId: "21", //21 人才招聘
-          onlineFlag: 1
-        }
+        data: this.searchForm
       }).then(res => {
         this.talent = res.data.data.resultList.map(item => {
           item.releaseTime = item.releaseTime.slice(0, 10);
@@ -62,13 +67,26 @@ export default {
           };
         });
       });
+    },
+    handleCurrentChange(val) {
+      this.searchForm.targetPage = val
+      this.getData()
+    },
+      //详情
+    toDetail(articleId) {
+      this.$router.push({
+        path: "/detail",
+        query: {
+          articleId: articleId
+        }
+      });
     }
   },
   created() {
     Bus.$on("setMsg", content => {
       this.msg = content;
     });
-    this.getData()
+    this.getData();
   }
 };
 </script>

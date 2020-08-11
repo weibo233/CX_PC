@@ -72,7 +72,7 @@ export default {
   width: 1200px;
   margin: 0 auto;
   .data {
-    margin-bottom: 228px;
+    margin-bottom: 100px;
     .accoumnt {
       font-size: 38px;
       color: rgb(243, 154, 50);

@@ -16,7 +16,9 @@
           <span class="content">{{ form.author }}</span>
         </div>
       </div>
-      <div id="content"></div>
+      <div id="content">
+          <a :href="form.content">{{form.title}}</a>
+      </div>
     </el-row>
   </div>
 </template>
@@ -93,8 +95,8 @@ export default {
         }
       }).then(res => {
         this.form = res.data.data;
-        var content = document.getElementById("content")
-         content.innerHTML = res.data.data.content
+        // var content = document.getElementById("content")
+        //  content.innerHTML = res.data.data.content
       });
     }
   },
@@ -116,6 +118,10 @@ export default {
   min-height: 500px;
   margin: 0 auto;
   padding-bottom:150px ;
+  #content{
+  margin-top: 30px;
+  text-align: center;
+}
   .title {
     text-align: center;
     height: 50px;
@@ -138,4 +144,6 @@ export default {
     }
   }
 }
+
+
 </style>

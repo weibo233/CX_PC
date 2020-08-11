@@ -41,7 +41,7 @@
           v-for="item in download"
           :key="item.articleId"
         >
-          <el-col :span="23" style="margin-left:26px;">
+          <el-col :span="23" style="margin-left:26px;" @click.native="todownloadDetail(item.articleId)">
             <div class="time fl">
               <p class="y">{{ item.releaseTime.slice(0, 4) }}</p>
               <p class="md">{{ item.releaseTime.slice(5, 10) }}</p>
@@ -114,6 +114,14 @@ export default {
     toDetail(articleId) {
       this.$router.push({
         path: "/detail",
+        query: {
+          articleId: articleId
+        }
+      });
+    },
+    todownloadDetail(articleId) {
+      this.$router.push({
+        path: "/downloadDetail",
         query: {
           articleId: articleId
         }

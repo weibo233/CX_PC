@@ -30,7 +30,7 @@
           <el-menu-item index="/charging">收费标准</el-menu-item>
           <el-menu-item index="/talent">人才招聘</el-menu-item>
           <el-menu-item index="/contact">联系我们</el-menu-item>
-          <el-menu-item index="/home">
+          <!-- <el-menu-item index="/home">
             <template>
             <span
               class="icon"
@@ -38,21 +38,25 @@
             ></span>
 
             </template>
-          </el-menu-item>
-
+          </el-menu-item> -->
         </el-menu>
       </nav>
     </el-row>
-    <el-drawer :visible.sync="drawer" direction="ltr" :with-header="false" :style="`background:url(${keyword});`">
+    <el-drawer
+      :visible.sync="drawer"
+      direction="ltr"
+      :with-header="false"
+      :style="`background:url(${keyword});`"
+    >
       <el-input></el-input>
     </el-drawer>
     <main>
       <router-view></router-view>
     </main>
     <footer>
-      <el-row class="link">
+      <el-row class="link-box">
         <div class="content">
-          <div class="fl">
+          <div class="fl left">
             <ul class="linkT">
               <li v-for="(item, idx) in linkT" :key="idx">{{ item }}</li>
             </ul>
@@ -63,9 +67,13 @@
               <li v-for="(item, idx) in linkB" :key="idx">{{ item }}</li>
             </ul>
           </div>
-          <div class="fr qrCode">
-            <img src="@/assets/images/main/qrCode.png" alt="" />
-            <p>环保监管</p>
+          <div class="fr qrCode right">
+            <img
+              src="@/assets/images/main/qrCode.png"
+              alt=""
+              style="width:102px; height:102px;"
+            />
+            <p class="title">环保监管</p>
           </div>
         </div>
       </el-row>
@@ -87,23 +95,23 @@ export default {
   name: "App",
   data() {
     return {
-      path:"/home",
+      path: "/home",
       linkT: ["关于我们", "新闻中心", "招聘信息", "企业资质", "联系我们"],
       linkC: ["公司简介", "企业新闻", "招标公告", "荣誉证书", "联系方式"],
       linkB: ["业务范围", "行业新闻", "资料下载", "工程案例", "电子地图"],
       drawer: false,
       logo: require("@/assets/images/main/logo1.png"),
       search: require("@/assets/images/main/search.png"),
-      keyword:require("@/assets/images/main/keywordjpg.jpg")
+      keyword: require("@/assets/images/main/keywordjpg.jpg")
     };
   },
-  methods:{
+  methods: {
     gotosearch() {
-      this.$router.push('/search')
+      this.$router.push("/search");
     }
   },
   created() {
-    this.$router.push('/home')
+    this.$router.push("/home");
   }
 };
 </script>
@@ -122,7 +130,9 @@ export default {
   padding: 0;
   font-family: "Microsoft YaHei";
 }
-.clear{ clear:both} 
+.clear {
+  clear: both;
+}
 ul li {
   list-style: none;
   text-align: center;
@@ -147,7 +157,10 @@ ul li {
   }
   header {
     height: 120px;
+    width: 100%;
+    min-width: 1200px;
     background: rgb(234, 238, 241);
+    margin: 0 auto;
   }
   nav {
     height: 60px;
@@ -160,48 +173,64 @@ ul li {
     }
   }
   footer {
-    *{
+    * {
       color: rgb(128, 128, 128);
     }
-    .link {
+    .link-box {
       height: 300px;
+      width: 100%;
+      min-width: 1200px;
       background: rgb(234, 238, 241);
+      margin: 0 auto;
       li {
         float: left;
       }
-      .linkT {
-        li {
-          font-size: 20px;
-          margin-right: 139px;
-          margin-top: 60px;
-          &:last-child {
-            margin-right: 0;
+      .left {
+        width: 956px;
+        .linkT {
+          li {
+            font-size: 20px;
+            margin-right: 139px;
+            margin-top: 60px;
+            &:last-child {
+              margin-right: 0;
+            }
+            &:hover {
+              color: brown;
+              cursor: pointer;
+            }
           }
-          &:hover{
-            color: brown;
-            cursor: pointer;
+        }
+        .linkC,
+        .linkB {
+          li {
+            font-size: 16px;
+            margin-top: 35px;
+            margin-right: 156px;
+            &:last-child {
+              margin-right: 0;
+            }
           }
         }
       }
-      .linkC,
-      .linkB {
-        li {
-          font-size: 16px;
-          margin-top: 35px;
-          margin-right: 156px;
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-      }
-      .qrCode {
+      .right {
+        width: 102px;
         margin-top: 60px;
-        text-align: center;
+        .qrCode {
+          margin-top: 60px;
+          text-align: center;
+        }
+        .title {
+          text-align: center;
+        }
       }
     }
     .copyright {
       height: 100px;
+      width: 100%;
+      min-width: 1200px;
       background: rgb(64, 73, 88);
+      margin: 0 auto;
       ul {
         li {
           float: left;
@@ -209,7 +238,7 @@ ul li {
           color: #fff;
           margin-right: 216px;
           margin-top: 45px;
-           &:nth-child(2) {
+          &:nth-child(2) {
             float: center;
             margin-right: 0;
             margin-left: 96px;
@@ -238,7 +267,7 @@ header {
 
 nav {
   .el-menu {
-    li{
+    li {
       max-width: 160px;
     }
     .el-menu-item {
@@ -259,8 +288,8 @@ nav {
   }
 }
 
-.cx-submenu{
-  /deep/.el-menu{
+.cx-submenu {
+  /deep/.el-menu {
     min-width: 146px !important;
   }
 }
@@ -277,7 +306,6 @@ nav {
 }
 
 .el-menu.el-menu--horizontal {
-    border-bottom: none;
+  border-bottom: none;
 }
-
 </style>

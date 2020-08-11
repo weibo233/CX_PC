@@ -4,19 +4,19 @@
     <div id="chanrging">
       <tabs :tabs="tabs" :Navigation="Navigation"></tabs>
       <zhu :msg="msg"></zhu>
-      <el-row style="margin-bottom:32px;" v-for="item in 5" :key="item">
-        <el-col  :span="22" style="margin-left:30px;">
+      <el-row style="margin-bottom:32px;" v-for="item in tableList" :key="item.articleId">
+        <el-col :span="22" style="margin-left:30px;">
           <div class="time fl">
-            <p class="y">2020</p>
-            <p class="md">06/30</p>
+            <p class="y">{{ item.releaseTime.slice(0, 4) }}</p>
+            <p class="md">{{ item.releaseTime.slice(5, 10) }}</p>
           </div>
-          <div class="notice fr">
-            <p class="title">造价咨询服务收费标准</p>
+          <div class="notice fr" @click="toDetail(item.articleId)">
+            <p class="title">{{item.title}}</p>
           </div>
         </el-col>
       </el-row>
       <p style="text-align:center;">
-        <el-pagination layout="prev, pager, next" :total="50"> </el-pagination>
+        <el-pagination layout="prev, pager, next" :total="searchForm.pageCount" :page-size="searchForm.pageSize" @current-change="handCurrentChange"> </el-pagination>
       </p>
     </div>
   </div>
@@ -34,16 +34,49 @@ export default {
   },
   data() {
     return {
-      Navigation:"",
+      Navigation: "",
       tabs: ["收费标准"],
-      msg: "收费标准"
+      msg: "收费标准",
+      searchForm: {
+        categoryId: "18",
+        pageCount: 1, //总页数
+        pageSize: 5, //每页的条数
+        targetPage: 1 //当前页
+      },
+      tableList:[]
     };
   },
+  methods: {
+    getData() {
+      this.$http({
+        method: "post",
+        url: "/framework/all/article/page",
+        data: this.searchForm
+      }).then(res => {
+        this.tableList = res.data.data.resultList
+        console.log(res.data.data.resultList,"res")
+      });
+    },
+    handCurrentChange(val) {
+      this.searchForm.targetPage = val
+      this.getData()
+    },
+     //详情
+    toDetail(articleId) {
+      this.$router.push({
+        path:"/detail",
+        query:{
+          articleId:articleId
+        }
+      })
+    },
+  },
   created() {
+    this.getData();
     Bus.$on("setMsg", content => {
       this.msg = content;
     });
-    this.Navigation = this.$router.history.current.name
+    this.Navigation = this.$router.history.current.name;
   }
 };
 </script>
@@ -73,7 +106,7 @@ export default {
     border-bottom: 2px dashed #eee;
     padding: 17px 28px;
     cursor: pointer;
-    .title{
+    .title {
       line-height: 60px;
     }
     &:hover {

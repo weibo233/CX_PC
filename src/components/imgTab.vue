@@ -2,29 +2,32 @@
   <el-row
     style="box-sizing:border-box;padding:20px 0 26px 0;border-bottom:2px dashed #eeee;"
   >
-    <el-col :span="10">
-      <img :src="information.cover" alt="" style="width:100%;height:100px;" />
+    <el-col :span="10" style="min-height:104px;">
+      <viewer>
+        <img :src="information.cover" alt="" style="width:100%;height:100px;" />
+      </viewer>
     </el-col>
     <el-col :span="12" class="Bidding-data" :offset="2">
-      <p>
-        <span
-          class="fl fontHover over"
-          @click="toDetail(information.articleId)"
-          >{{ information.title }}</span
+      <el-row>
+        <el-col
+          :span="14"
+          class=" fontHover over"
+          @click.native="toDetail(information.articleId)"
+          >{{ information.title }}</el-col
         >
-        <span class="fr" style="color:#cac3c3;">{{
-          information.releaseTime
-        }}</span>
-      </p>
+        <el-col :span="8" :offset="2" class="time">{{
+          information.releaseTime.replace(/-/g, "/")
+        }}</el-col>
+      </el-row>
       <p
-        style="text-indent:2em; margin-top:28px;color:rgb(128, 110, 110);overflow:hidden; 
+        style="text-indent:2em;color:rgb(128, 110, 110);overflow:hidden; 
 text-overflow:ellipsis;
 display:-webkit-box; 
 white-space:pre-wrap;
 -webkit-box-orient:vertical;  
 -webkit-line-clamp:4;"
       >
-        {{ information.content }}
+        {{ information.introduce }}
       </p>
     </el-col>
   </el-row>
@@ -51,6 +54,9 @@ export default {
     // goRoute(roter) {
     //   this.$router.push(roter)
     // }
+    replaceStr(str) {
+      return str.replace(/-/g, "/");
+    },
     //详情
     toDetail(articleId) {
       this.$router.push({
@@ -92,11 +98,14 @@ export default {
 .over {
   display: block;
   overflow: hidden;
-  width: 100%;
-  height: 32px;
+  // width: 40%;
+  height: 17px;
   text-overflow: ellipsis;
-  text-align: left;
+  // text-align: left;
   color: rgb(128, 128, 128);
+}
+.time {
+  color: #cac3c3;
 }
 //  style="margin-top:20px;margin-bottom:6px;padding-bottom:20px;border-bottom:2px dashed #eeee;"
 </style>

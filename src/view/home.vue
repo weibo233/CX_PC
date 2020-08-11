@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row class="banner">
-      <el-carousel height="700px">
+      <el-carousel height="700px" class="home-banner">
         <el-carousel-item v-for="(item, idx) in bannerimg" :key="idx">
           <img :src="item.url" alt="" />
         </el-carousel-item>
@@ -66,10 +66,10 @@
             :key="idx"
             @click.native="toDetail(item.articleId)"
           >
-            <el-col :span="16" class="more_than">{{ item.title }}</el-col>
-            <el-col :span="6" :offset="2" class="fr" style="color:#cac3c3;">{{
-              item.releaseTime
-            }}</el-col>
+            <el-col :span="16" class="more_than">{{ item.introduce }}</el-col>
+            <el-col :span="6" :offset="2" class="fr" style="color:#cac3c3;">
+             {{ replaceStr(item.releaseTime)}}
+            </el-col>
           </el-row>
         </el-col>
         <!-- 行业新闻 -->
@@ -163,6 +163,9 @@ export default {
     };
   },
   methods: {
+    replaceStr(str) {
+      return str.replace(/-/g,'/')
+    },
     //获取视频链接
     getData() {
       this.$http({
@@ -208,6 +211,7 @@ export default {
             ...item
           };
         });
+        console.log(res,"收费标准")
       });
     },
     //企业新闻
@@ -220,12 +224,13 @@ export default {
           onlineFlag: 1
         }
       }).then(res => {
-        this.companyNotice = res.data.data.resultList.map(item => {
+        let  companyNotice = res.data.data.resultList.map(item => {
           item.releaseTime = item.releaseTime.slice(0, 10);
           return {
             ...item
           };
         });
+        this.companyNotice = companyNotice.slice(0,6)
       });
     },
     //行业新闻
@@ -238,12 +243,13 @@ export default {
           onlineFlag: 1
         }
       }).then(res => {
-        this.IndustryNews = res.data.data.resultList.map(item => {
+        let IndustryNews = res.data.data.resultList.map(item => {
           item.releaseTime = item.releaseTime.slice(0, 10);
           return {
             ...item
           };
         });
+        this.IndustryNews = IndustryNews.slice(0,6)
       });
     },
     //荣誉证书
@@ -256,7 +262,7 @@ export default {
           onlineFlag: 1
         }
       }).then(res => {
-        this.honor = res.data.data.resultList;
+        this.honor = res.data.data.resultList.slice(0,6);
       });
     },
     //详情
@@ -287,8 +293,12 @@ export default {
   }
 }
 .banner {
-  img {
-    width: 100%;
+  .home-banner{
+      width: 100%;
+    min-width: 1200px;
+    img {
+      width: 100%;
+    }
   }
 }
 .center {

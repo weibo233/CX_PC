@@ -3,7 +3,9 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(item, idx) in carrouselData" :key="idx">
         <img :src="item.cover" alt="" />
-        <p style="color:rgb(128,128,128);text-align:center;letter-spacing:2px;">{{item.title}}</p>
+        <p style="color:rgb(128,128,128);text-align:center;letter-spacing:2px;">
+          {{ item.title }}
+        </p>
       </div>
     </div>
     <!-- 如果需要分页器 -->
@@ -36,13 +38,15 @@ export default {
         // width: 1300, //你的slide宽度
         // slidesPerView: "auto",
         paginationClickable: true,
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true, //修改swiper的父元素时，自动初始化swiper
         spaceBetween: 20,
         slidesPerView: 4,
         grabCursor: true,
         autoplay: true,
-        autoplayDisableOnInteraction:false,
-        preventLinksPropagation:true,
-        autoplay: 1000 //可选选项，自动滑动
+        autoplayDisableOnInteraction: false,
+        preventLinksPropagation: true,
+        autoplay: 5000 //可选选项，自动滑动
       });
     }
   },
@@ -58,10 +62,12 @@ export default {
   .swiper-wrapper {
     .swiper-slide {
       margin-right: 42px;
+      width: 278px;
       height: 200px;
       img {
         width: 278px;
         height: 200px;
+        min-height: 200px;
       }
     }
   }

@@ -66,14 +66,18 @@ export default new Router({
       name:"IndustryNews",
       component:resolve => require(['@/view/industrynews'],resolve)
     },
+    //详情
     {
       path:"/detail",
       name:"detail",
       component:resolve => require(['@/view/detail'],resolve)
+    },
+    //下载详情
+    {
+      path:"/downloadDetail",
+      name:"downloadDetail",
+      component:resolve => require(['@/view/detaildownload'],resolve)
     }
-   
-
-
   ]
 })
 

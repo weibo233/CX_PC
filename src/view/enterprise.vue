@@ -62,7 +62,7 @@
       </el-row>
       <!-- 案例展示 -->
       <div class="projectbox" v-show="msg == '案例展示' ? true : false">
-        <el-row class="cxProject" v-for="(item, idx) in project" :key="idx" @click.native="toDetail(item.articleId)">
+        <el-row class="cxProject" v-for="(item, idx) in project" :key="idx">
           <el-col :span="6">
             <!-- <img :src="item.url" alt="" /> -->
             <viewer>
@@ -72,18 +72,12 @@
               />
             </viewer>
           </el-col>
-          <el-col :span="18" style="padding: 16px 40px;">
+          <el-col :span="18"  class="touchData" @click.native="toDetail(item.articleId)">
             <p class="title">
               <span>{{ item.title }}</span>
-            </p>
-            <p class="covered">
-              <span>占地面积:</span>
-              <span>{{ item.covered }}</span>
-            </p>
-            <p class="built-up">
-              <span>建筑面积:</span>
-              <span>{{ item.built_up }}</span>
-            </p>
+            </p>  
+            <p>{{item.builtUp}}</p>
+            <p>{{item.covered}}</p>
           </el-col>
           <p class="tip">深圳市成效项目管理有限公司</p>
         </el-row>
@@ -175,7 +169,16 @@ export default {
         url: "/framework/all/article/page",
         data: this.projectForm
       }).then(res => {
-        this.project = res.data.data.resultList;
+        this.project = res.data.data.resultList.map(item=>{
+              let builtUp = item.introduce.split("\n")[0]
+              let covered = item.introduce.split("\n")[1]
+              return {
+                ...item,
+                builtUp,
+                covered
+              }
+        });
+
       });
     },
     //荣誉证书
@@ -284,6 +287,13 @@ export default {
       height: 190px;
       border: 2px solid #eee;
       margin-bottom: 24px;
+      .touchData{
+        height: 100%;
+        padding: 16px 40px;
+        &:hover{
+          background: rgb(233, 238, 242);
+        }
+      }
       img {
         width: 100%;
         height: 186px;

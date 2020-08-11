@@ -20,6 +20,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .banneri{
+  width: 100%;
+  min-width: 1200px;
   img{
     width: 100%;
     height: 100%;
