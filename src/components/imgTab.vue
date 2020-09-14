@@ -19,16 +19,11 @@
           information.releaseTime.replace(/-/g, "/")
         }}</el-col>
       </el-row>
-      <p
-        style="text-indent:2em;color:rgb(128, 110, 110);overflow:hidden; 
-text-overflow:ellipsis;
-display:-webkit-box; 
-white-space:pre-wrap;
--webkit-box-orient:vertical;  
--webkit-line-clamp:4;"
-      >
-        {{ information.introduce }}
-      </p>
+      <el-row style="padding-top:16px;">
+        <p class="desc">
+          {{ information.introduce }}
+        </p>
+      </el-row>
     </el-col>
   </el-row>
 </template>
@@ -38,7 +33,12 @@ export default {
     information: {
       type: Object,
       default() {
-        return {};
+        return {
+          articleId:"",
+          title:"",
+          releaseTime:"",
+          introduce:""
+        };
       }
     },
     router: {
@@ -106,6 +106,17 @@ export default {
 }
 .time {
   color: #cac3c3;
+}
+.desc {
+  height: 64px;
+  text-indent: 2em;
+  color: rgb(128, 110, 110);
+  overflow: hidden;
+   text-overflow: ellipsis;
+  display: -webkit-box;
+   white-space: pre-wrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 //  style="margin-top:20px;margin-bottom:6px;padding-bottom:20px;border-bottom:2px dashed #eeee;"
 </style>

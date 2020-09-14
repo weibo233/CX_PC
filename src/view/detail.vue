@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     computerTy(id) {
-      console.log(id,"---id")
+      // console.log(id,"---id")
       if (id == "6") {
         return "招标公告";
       }

@@ -124,7 +124,7 @@ export default {
         url: "/framework/all/subject/info",
         data: {}
       }).then(res => {
-        console.log(res);
+        // console.log(res);
       });
     },
     getCompanyData() {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row class="banner">
-      <el-carousel height="700px" class="home-banner">
+      <el-carousel height="700px" class="home-banner" indicator-position="outside">
         <el-carousel-item v-for="(item, idx) in bannerimg" :key="idx">
           <img :src="item.url" alt="" />
         </el-carousel-item>
@@ -82,7 +82,7 @@
             :key="idx"
              @click.native="toDetail(item.articleId)"
           >
-            <el-col :span="16" class="more_than">{{ item.title }}</el-col>
+            <el-col :span="16" class="more_than">{{ item.introduce }}</el-col>
             <el-col :span="6" :offset="2" class="fr" style="color:#cac3c3;">{{
               item.releaseTime
             }}</el-col>
@@ -211,7 +211,7 @@ export default {
             ...item
           };
         });
-        console.log(res,"收费标准")
+        // console.log(res,"收费标准")
       });
     },
     //企业新闻
@@ -294,8 +294,8 @@ export default {
 }
 .banner {
   .home-banner{
-      width: 100%;
-    min-width: 1200px;
+    width: 1197px;
+    margin: 0 auto;
     img {
       width: 100%;
     }

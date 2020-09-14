@@ -134,7 +134,7 @@ export default {
         url: "/framework/all/article/page",
         data: this.tenderForm
       }).then(res => {
-        console.log(res, "---res");
+        // console.log(res, "---res");
         this.tender = res.data.data.resultList.map(item => {
           item.releaseTime = item.releaseTime.slice(0, 10);
           return {
@@ -168,7 +168,7 @@ export default {
       this.getTender()
     },
     handleCurrentChangeB(val) {
-      console.log(123)
+      // console.log(123)
       this.downloadForm.targetPage = val;
       this.getDownload()
     }

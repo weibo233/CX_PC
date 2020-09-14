@@ -58,7 +58,13 @@
         <div class="content">
           <div class="fl left">
             <ul class="linkT">
-              <li v-for="(item, idx) in linkT" :key="idx">{{ item }}</li>
+              <li
+                v-for="(item, idx) in linkT"
+                :key="idx"
+                @click="$router.push(item.href)"
+              >
+                {{ item.label }}
+              </li>
             </ul>
             <ul class="linkC">
               <li v-for="(item, idx) in linkC" :key="idx">{{ item }}</li>
@@ -81,7 +87,10 @@
         <div class="content">
           <ul>
             <li style="letter-spacing:1px;">联系方式：0755-83948356</li>
-            <li style="letter-spacing:1px;">szcxzj@21cn.com</li>
+            <!-- <li style="letter-spacing:1px;">szcxzj@21cn.com</li> -->
+            <li>
+              <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery">粤ICP备20041646号</a>
+            </li>
             <li style="letter-spacing:1px;">传真：0755-83948355</li>
           </ul>
         </div>
@@ -96,7 +105,29 @@ export default {
   data() {
     return {
       path: "/home",
-      linkT: ["关于我们", "新闻中心", "招聘信息", "企业资质", "联系我们"],
+      linkT: [
+        {
+          label: "关于我们",
+          href: "/about"
+        },
+        {
+          label: "新闻中心",
+          href: ""
+        },
+        {
+          label: "招聘信息",
+          href: "/talent"
+        },
+        {
+          label: "企业资质",
+          href: "/enterprise"
+        },
+        {
+          label: "联系我们",
+          href: "/contact"
+        }
+      ],
+      // linkT: ["关于我们", "新闻中心", "招聘信息", "企业资质", "联系我们"],
       linkC: ["公司简介", "企业新闻", "招标公告", "荣誉证书", "联系方式"],
       linkB: ["业务范围", "行业新闻", "资料下载", "工程案例", "电子地图"],
       drawer: false,
@@ -238,6 +269,10 @@ ul li {
           color: #fff;
           margin-right: 216px;
           margin-top: 45px;
+          a{
+               color: #fff;
+               text-decoration: none;
+          }
           &:nth-child(2) {
             float: center;
             margin-right: 0;

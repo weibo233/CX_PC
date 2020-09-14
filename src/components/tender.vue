@@ -31,7 +31,7 @@ export default {
         }
       }).then(res => {
           this.carrouselData = res.data.data.resultList
-          console.log(res,'工程案例')
+          // console.log(res,'工程案例')
       });
     }
   },

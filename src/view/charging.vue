@@ -54,7 +54,7 @@ export default {
         data: this.searchForm
       }).then(res => {
         this.tableList = res.data.data.resultList
-        console.log(res.data.data.resultList,"res")
+        // console.log(res.data.data.resultList,"res")
       });
     },
     handCurrentChange(val) {
